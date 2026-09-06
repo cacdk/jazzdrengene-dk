@@ -12,15 +12,10 @@ import BaseHead from '../components/BaseHead.astro';
     <style>
       :root {
         color-scheme: dark;
-        --bg: #050505;
-        --bg-soft: #0d0d0d;
-        --panel: rgba(255, 255, 255, 0.04);
-        --text: #f7f3eb;
-        --muted: #d4ccbd;
-        --accent: #d4af37;
-        --accent-hover: #e4c55f;
-        --border: rgba(212, 175, 55, 0.18);
-        --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+        --bg: #000;
+        --text: #f2f2f2;
+        --muted: #d9d9d9;
+        --soft: #c8c8c8;
       }
 
       * {
@@ -32,11 +27,9 @@ import BaseHead from '../components/BaseHead.astro';
         margin: 0;
         padding: 0;
         min-height: 100%;
-        background:
-          radial-gradient(circle at top, rgba(212, 175, 55, 0.08), transparent 35%),
-          linear-gradient(to bottom, #080808, #030303);
+        background: var(--bg);
         color: var(--text);
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Myriad Pro", "Helvetica Neue", Arial, sans-serif;
       }
 
       body {
@@ -44,97 +37,106 @@ import BaseHead from '../components/BaseHead.astro';
       }
 
       main {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .layout {
         width: 100%;
+        max-width: 1250px;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 3.5rem;
+        align-items: center;
       }
 
-      .wrapper {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 4rem 1.5rem 2.5rem;
+      .saxophone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .hero {
-        max-width: 860px;
-        margin: 0 auto 3rem;
-        text-align: center;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 2.75rem 2rem;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(6px);
+      .saxophone img {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+        display: block;
+      }
+
+      .content {
+        text-align: left;
       }
 
       h1 {
-        margin: 0 0 1.25rem;
-        font-size: clamp(2.3rem, 5vw, 3.9rem);
-        line-height: 1.08;
-        font-weight: 700;
+        margin: 0;
+        font-size: clamp(3rem, 7vw, 5.8rem);
+        font-weight: 400;
+        line-height: 1;
         letter-spacing: -0.02em;
-        color: #fff;
+        color: var(--text);
       }
 
-      p {
-        margin: 0 0 1rem;
-        font-size: 1.2rem;
-        line-height: 1.8;
+      .phone {
+        margin-top: 1.25rem;
+        font-size: clamp(2rem, 4vw, 3.3rem);
+        font-weight: 300;
+        color: var(--muted);
+        letter-spacing: 0.01em;
+      }
+
+      .tagline {
+        margin-top: 2.5rem;
+        font-size: clamp(1.35rem, 2.6vw, 2.2rem);
+        font-weight: 300;
         color: var(--muted);
       }
 
+      .message {
+        margin-top: 3rem;
+        max-width: 760px;
+      }
+
+      .message p {
+        margin: 0 0 1rem;
+        font-size: 1.15rem;
+        line-height: 1.75;
+        color: var(--soft);
+      }
+
       a {
-        color: var(--accent);
+        color: var(--text);
         text-decoration: underline;
-        text-underline-offset: 0.16em;
+        text-underline-offset: 0.15em;
       }
 
       a:hover {
-        color: var(--accent-hover);
+        color: #fff;
       }
 
-      .image-section {
-        margin-top: 2rem;
-      }
-
-      .image-frame {
-        position: relative;
-        border-radius: 24px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        background: var(--bg-soft);
-      }
-
-      .image-frame::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.04));
-        pointer-events: none;
-      }
-
-      .image-frame img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      @media (max-width: 700px) {
-        .wrapper {
-          padding: 2.5rem 1rem 1.5rem;
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          text-align: center;
         }
 
-        .hero {
-          padding: 2rem 1.25rem;
-          border-radius: 18px;
+        .content {
+          text-align: center;
         }
 
-        .image-frame {
-          border-radius: 18px;
+        .message {
+          margin: 2.5rem auto 0;
         }
 
-        p {
-          font-size: 1.05rem;
-          line-height: 1.7;
+        .saxophone img {
+          max-width: 170px;
+        }
+
+        .tagline {
+          margin-top: 2rem;
         }
       }
     </style>
@@ -142,30 +144,33 @@ import BaseHead from '../components/BaseHead.astro';
 
   <body>
     <main>
-      <div class="wrapper">
-        <section class="hero">
-          <h1>Velkommen til Jazzdrengene.dk</h1>
+      <div class="layout">
+        <div class="saxophone">
+          <img src="/saxophone.png" alt="Saxophone illustration" />
+        </div>
 
-          <p>Vi er ved at opbygge siden.</p>
+        <div class="content">
+          <h1>Jazzdrengene.dk</h1>
 
-          <p>
-            I mellemtiden anbefaler vi et besøg på vores bookers side:
-            <a href="https://jazz-band.dk/video-lyd/" target="_blank" rel="noopener noreferrer">
-              https://jazz-band.dk/video-lyd/
-            </a>
-          </p>
+          <div class="phone">+45 20712237</div>
 
-          <p>
-            Du er også velkommen til at kontakte Claus på
-            <a href="tel:+4520712237">20712237</a>
-          </p>
-        </section>
+          <div class="tagline">- musik til enhver festlig lejlighed</div>
 
-        <section class="image-section">
-          <div class="image-frame">
-            <img src="/jazzdrengene.jpg" alt="Jazzdrengene spiller udendørs" />
+          <div class="message">
+            <p>Velkommen til Jazzdrengene.dk.</p>
+            <p>Vi er ved at opbygge siden.</p>
+            <p>
+              I mellemtiden anbefaler vi et besøg på vores bookers side:
+              <a href="https://jazz-band.dk/video-lyd/" target="_blank" rel="noopener noreferrer">
+                jazz-band.dk/video-lyd/
+              </a>
+            </p>
+            <p>
+              Du er også velkommen til at kontakte Claus på
+              <a href="tel:+4520712237">20712237</a>.
+            </p>
           </div>
-        </section>
+        </div>
       </div>
     </main>
   </body>

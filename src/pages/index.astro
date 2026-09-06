@@ -1,63 +1,171 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!doctype html>
 <html lang="da">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead
+      title="Velkommen til Jazzdrengene.dk"
+      description="Jazzdrengene.dk er ved at blive opbygget."
+    />
     <style>
       :root {
         color-scheme: dark;
+        --bg: #050505;
+        --bg-soft: #0d0d0d;
+        --panel: rgba(255, 255, 255, 0.04);
+        --text: #f7f3eb;
+        --muted: #d4ccbd;
+        --accent: #d4af37;
+        --accent-hover: #e4c55f;
+        --border: rgba(212, 175, 55, 0.18);
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
       }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
       body {
         margin: 0;
-        min-height: 100vh;
-        background: #000;
-        color: #fff;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        padding: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at top, rgba(212, 175, 55, 0.08), transparent 35%),
+          linear-gradient(to bottom, #080808, #030303);
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
       }
+
+      body {
+        min-height: 100vh;
+      }
+
       main {
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 2rem 1.25rem;
+        width: 100%;
       }
-      .card {
-        width: min(900px, 100%);
-        line-height: 1.6;
+
+      .wrapper {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 2.5rem;
       }
+
+      .hero {
+        max-width: 860px;
+        margin: 0 auto 3rem;
+        text-align: center;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 2.75rem 2rem;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(6px);
+      }
+
       h1 {
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
-        margin: 0 0 1rem 0;
+        margin: 0 0 1.25rem;
+        font-size: clamp(2.3rem, 5vw, 3.9rem);
+        line-height: 1.08;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #fff;
       }
+
       p {
-        font-size: 1.1rem;
-        margin: 0 0 1rem 0;
+        margin: 0 0 1rem;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--muted);
       }
+
       a {
-        color: #7dd3fc;
+        color: var(--accent);
         text-decoration: underline;
+        text-underline-offset: 0.16em;
       }
+
       a:hover {
-        color: #bae6fd;
+        color: var(--accent-hover);
+      }
+
+      .image-section {
+        margin-top: 2rem;
+      }
+
+      .image-frame {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: var(--bg-soft);
+      }
+
+      .image-frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.04));
+        pointer-events: none;
+      }
+
+      .image-frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      @media (max-width: 700px) {
+        .wrapper {
+          padding: 2.5rem 1rem 1.5rem;
+        }
+
+        .hero {
+          padding: 2rem 1.25rem;
+          border-radius: 18px;
+        }
+
+        .image-frame {
+          border-radius: 18px;
+        }
+
+        p {
+          font-size: 1.05rem;
+          line-height: 1.7;
+        }
       }
     </style>
   </head>
 
   <body>
     <main>
-      <div class="card">
-        <h1>Velkommen til jazzdrengene.dk</h1>
-        <p>Vi er ved at opbygge siden.</p>
-        <p>
-          I mellemtiden anbefaler vi at besøge vores bookers side på:
-          <a href="https://jazz-band.dk/video-lyd/" target="_blank" rel="noopener noreferrer">
-            https://jazz-band.dk/video-lyd/
-          </a>
-        </p>
-        <p>Du er også velkomne til at kontakte Claus på <a href="tel:+4520712237">20712237</a></p>
+      <div class="wrapper">
+        <section class="hero">
+          <h1>Velkommen til Jazzdrengene.dk</h1>
+
+          <p>Vi er ved at opbygge siden.</p>
+
+          <p>
+            I mellemtiden anbefaler vi et besøg på vores bookers side:
+            <a href="https://jazz-band.dk/video-lyd/" target="_blank" rel="noopener noreferrer">
+              https://jazz-band.dk/video-lyd/
+            </a>
+          </p>
+
+          <p>
+            Du er også velkommen til at kontakte Claus på
+            <a href="tel:+4520712237">20712237</a>
+          </p>
+        </section>
+
+        <section class="image-section">
+          <div class="image-frame">
+            <img src="/jazzdrengene.jpg" alt="Jazzdrengene spiller udendørs" />
+          </div>
+        </section>
       </div>
     </main>
   </body>

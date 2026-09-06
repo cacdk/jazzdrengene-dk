@@ -40,14 +40,15 @@ import BaseHead from '../components/BaseHead.astro';
         display: grid;
         place-items: center;
         padding: 2.5rem 2rem;
+        background: radial-gradient(ellipse at 50% 48%, #151514 0%, var(--black) 62%);
       }
 
       .landing {
         width: min(100%, 1120px);
         display: grid;
         grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1fr);
-        align-items: center;
-        gap: clamp(3rem, 8vw, 7rem);
+        align-items: start;
+        gap: clamp(2rem, 4vw, 4rem);
       }
 
       .visual {
@@ -63,23 +64,40 @@ import BaseHead from '../components/BaseHead.astro';
         aspect-ratio: 4 / 5;
         object-fit: cover;
         filter: grayscale(1) contrast(1.08) brightness(0.82);
+        border: 1px solid rgba(244, 243, 240, 0.2);
+        box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.38);
+      }
+
+      .primary-info {
+        display: grid;
+        grid-template-columns: 130px minmax(0, 1fr);
+        align-items: start;
+        gap: clamp(0.85rem, 1.6vw, 1.5rem);
+        min-width: 0;
       }
 
       .saxophone {
-        position: absolute;
-        right: -2.2rem;
-        bottom: -2rem;
-        width: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-1rem);
       }
 
       .saxophone img {
         display: block;
         width: 100%;
         height: auto;
+        object-fit: contain;
         filter: grayscale(1) brightness(0) invert(1);
       }
 
+      .primary-info > div:last-child {
+        min-width: 0;
+        container-type: inline-size;
+      }
+
       .copy {
+        position: relative;
         text-align: left;
         max-width: 580px;
       }
@@ -88,35 +106,45 @@ import BaseHead from '../components/BaseHead.astro';
         margin: 0;
         color: var(--white);
         font-weight: 700;
-        font-size: clamp(2.8rem, 6vw, 5.8rem);
+        font-size: clamp(1.8rem, 10cqw, 5rem);
         line-height: 0.95;
         letter-spacing: 0.015em;
+        white-space: nowrap;
       }
 
       .phone {
         display: block;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
         color: var(--white);
         font-weight: 700;
-        font-size: clamp(2rem, 4.8vw, 4rem);
+        font-size: clamp(1.4rem, 7cqw, 3.5rem);
         line-height: 1;
         letter-spacing: 0.04em;
         text-decoration: none;
       }
 
       .tagline {
-        margin: 1.6rem 0 0;
+        margin: 1.15rem 0 0;
         color: var(--white);
         font-weight: 700;
-        font-size: clamp(1.15rem, 2.4vw, 2rem);
+        font-size: clamp(1rem, 4cqw, 1.6rem);
         line-height: 1.1;
         letter-spacing: 0.025em;
         text-transform: lowercase;
       }
 
       .message {
-        margin-top: 2.8rem;
+        position: relative;
+        margin-top: 1.25rem;
         padding-top: 1.6rem;
+      }
+
+      .message::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
         border-top: 1px solid rgba(244, 243, 240, 0.28);
       }
 
@@ -153,10 +181,21 @@ import BaseHead from '../components/BaseHead.astro';
           margin-left: 0.5rem;
         }
 
+        .primary-info {
+          grid-template-columns: minmax(110px, 0.4fr) 1fr;
+          gap: 1rem;
+        }
+
         .saxophone {
-          right: -1rem;
-          bottom: -1.5rem;
-          width: 90px;
+          transform: translateY(-1rem);
+        }
+
+        .message {
+          margin-left: 0;
+        }
+
+        .message::before {
+          left: 0;
         }
 
         .copy {
@@ -175,15 +214,19 @@ import BaseHead from '../components/BaseHead.astro';
       <section class="landing" aria-label="Jazzdrengene kontaktoplysninger">
         <div class="visual">
           <img class="photo" src="/jazzdrengene.jpg" alt="Jazzdrengene spiller musik" />
-          <div class="saxophone">
-            <img src="/saxophone.png" alt="" />
-          </div>
         </div>
 
         <div class="copy">
-          <h1>Jazzdrengene.dk</h1>
-          <a class="phone" href="tel:+4520712237">20712237</a>
-          <p class="tagline">- musik til enhver festlig lejlighed</p>
+          <div class="primary-info">
+            <div class="saxophone">
+              <img src="/saxophone.png" alt="" />
+            </div>
+            <div>
+              <h1>Jazzdrengene.dk</h1>
+              <a class="phone" href="tel:+4520712237">20712237</a>
+              <p class="tagline">- musik til enhver festlig lejlighed</p>
+            </div>
+          </div>
           <div class="message">
             <p>Velkommen til Jazzdrengene.dk.</p>
             <p>Vi er ved at opbygge siden.</p>

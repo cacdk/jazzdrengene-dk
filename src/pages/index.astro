@@ -45,17 +45,16 @@ import BaseHead from '../components/BaseHead.astro';
 
       .landing {
         width: min(100%, 1120px);
-        display: grid;
-        grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1fr);
-        align-items: start;
-        gap: clamp(2rem, 4vw, 4rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.25rem;
       }
 
       .visual {
         position: relative;
         width: 100%;
         max-width: 540px;
-        justify-self: end;
       }
 
       .photo {
@@ -69,10 +68,11 @@ import BaseHead from '../components/BaseHead.astro';
       }
 
       .primary-info {
+        width: min(100%, 620px);
         display: grid;
         grid-template-columns: 94px minmax(0, 1fr);
         align-items: start;
-        gap: clamp(0.85rem, 1.6vw, 1.5rem);
+        gap: clamp(0.35rem, 0.8vw, 0.75rem);
         min-width: 0;
       }
 
@@ -96,9 +96,14 @@ import BaseHead from '../components/BaseHead.astro';
       }
 
       .copy {
+        display: contents;
+      }
+
+      .message {
+        width: min(100%, 620px);
         position: relative;
-        text-align: left;
-        max-width: 580px;
+        margin-top: 0;
+        padding-top: 1.6rem;
       }
 
       h1 {
@@ -132,12 +137,6 @@ import BaseHead from '../components/BaseHead.astro';
         text-transform: lowercase;
       }
 
-      .message {
-        position: relative;
-        margin-top: 1.25rem;
-        padding-top: 1.6rem;
-      }
-
       .message::before {
         content: "";
         position: absolute;
@@ -169,14 +168,8 @@ import BaseHead from '../components/BaseHead.astro';
           padding: 2.5rem 1.5rem;
         }
 
-        .landing {
-          grid-template-columns: 1fr;
-          gap: 3.5rem;
-        }
-
         .visual {
           width: calc(100% - 1rem);
-          justify-self: start;
           margin-left: 0.5rem;
         }
 
@@ -211,34 +204,33 @@ import BaseHead from '../components/BaseHead.astro';
   <body>
     <main>
       <section class="landing" aria-label="Jazzdrengene kontaktoplysninger">
+        <div class="primary-info">
+          <div class="saxophone">
+            <img src="/saxophone.png" alt="" />
+          </div>
+          <div>
+            <h1>Jazzdrengene.dk</h1>
+            <p class="tagline">- musik til enhver festlig lejlighed</p>
+          </div>
+        </div>
+
         <div class="visual">
           <img class="photo" src="/jazzdrengene.jpg" alt="Jazzdrengene spiller musik" />
         </div>
 
-        <div class="copy">
-          <div class="primary-info">
-            <div class="saxophone">
-              <img src="/saxophone.png" alt="" />
-            </div>
-            <div>
-              <h1>Jazzdrengene.dk</h1>
-              <p class="tagline">- musik til enhver festlig lejlighed</p>
-            </div>
-          </div>
-          <div class="message">
-            <p>Velkommen til Jazzdrengene.dk.</p>
-            <p>Vi er ved at opbygge siden.</p>
-            <p>
-              I mellemtiden anbefaler vi et besøg på vores bookers side:
-              <a href="https://jazz-band.dk/video-lyd/" target="_blank" rel="noopener noreferrer">
-                jazz-band.dk/video-lyd/
-              </a>
-            </p>
-            <p>
-              Du er også velkommen til at kontakte Claus på
-              <a href="tel:+4520712237">20712237</a>.
-            </p>
-          </div>
+        <div class="message">
+          <p>Velkommen til Jazzdrengene.dk.</p>
+          <p>Vi er ved at opbygge siden.</p>
+          <p>
+            I mellemtiden anbefaler vi et besøg på vores bookers side:
+            <a href="https://jazz-band.dk/video-lyd/" target="_blank" rel="noopener noreferrer">
+              jazz-band.dk/video-lyd/
+            </a>
+          </p>
+          <p>
+            Du er også velkommen til at kontakte Claus på
+            <a href="tel:+4520712237">20712237</a>.
+          </p>
         </div>
       </section>
     </main>

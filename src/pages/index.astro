@@ -68,7 +68,7 @@ import BaseHead from '../components/BaseHead.astro';
       }
 
       .primary-info {
-        width: min(100%, 620px);
+        width: min(100%, 540px);
         display: grid;
         grid-template-columns: 94px minmax(0, 1fr);
         align-items: start;
@@ -79,7 +79,7 @@ import BaseHead from '../components/BaseHead.astro';
       .saxophone {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
       }
 
       .saxophone img {
@@ -93,6 +93,7 @@ import BaseHead from '../components/BaseHead.astro';
       .primary-info > div:last-child {
         min-width: 0;
         container-type: inline-size;
+        text-align: right;
       }
 
       .copy {
@@ -194,6 +195,10 @@ import BaseHead from '../components/BaseHead.astro';
           text-align: center;
         }
 
+        .primary-info > div:last-child {
+          text-align: left;
+        }
+
         .tagline {
           margin-top: 1.4rem;
         }
@@ -215,21 +220,20 @@ import BaseHead from '../components/BaseHead.astro';
         </div>
 
         <div class="visual">
-          <img class="photo" src="/jazzdrengene.jpg" alt="Jazzdrengene spiller musik" />
+          <img class="photo" src="/Jazzdrengenebw.png" alt="Jazzdrengene spiller musik" />
         </div>
 
         <div class="message">
           <p>Velkommen til Jazzdrengene.dk.</p>
-          <p>Vi er ved at opbygge siden.</p>
           <p>
-            I mellemtiden anbefaler vi et besøg på vores bookers side:
+            Book os og se billeder og video på:
             <a href="https://jazz-band.dk/video-lyd/" target="_blank" rel="noopener noreferrer">
               jazz-band.dk/video-lyd/
             </a>
           </p>
           <p>
-            Du er også velkommen til at kontakte Claus på
-            <a href="tel:+4520712237">20712237</a>.
+            Vil du høre mere om os? Så er du velkommen til at ringe til Claus på
+            <a href="tel:+4520712237">20712237</a>
           </p>
         </div>
       </section>

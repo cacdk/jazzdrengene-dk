@@ -60,8 +60,18 @@ import BaseHead from '../components/BaseHead.astro';
       .photo {
         display: block;
         width: 100%;
-        aspect-ratio: 4 / 5;
-        object-fit: cover;
+        height: auto;
+        aspect-ratio: auto;
+        object-fit: contain;
+        filter: grayscale(1) contrast(1.08) brightness(0.82);
+        border: 1px solid rgba(244, 243, 240, 0.2);
+        box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.38);
+      }
+
+      .bottom-photo {
+        display: block;
+        width: min(100%, var(--content-width));
+        height: auto;
         filter: grayscale(1) contrast(1.08) brightness(0.82);
         border: 1px solid rgba(244, 243, 240, 0.2);
         box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.38);
@@ -205,7 +215,7 @@ import BaseHead from '../components/BaseHead.astro';
         </div>
 
         <div class="visual">
-          <img class="photo" src="/Jazzdrengenebw.png" alt="Jazzdrengene spiller musik" />
+          <img class="photo" src="/JizzersAll.jpg" alt="Jazzdrengene spiller musik" />
         </div>
 
         <div class="message">
@@ -222,6 +232,8 @@ import BaseHead from '../components/BaseHead.astro';
         </div>
 
         <img class="pool-photo" src="/JazzdrengnePool.jpg" alt="Jazzdrengene ved poolen" />
+
+        <img class="bottom-photo" src="/Jazzdrengenebw.png" alt="Jazzdrengene spiller musik" />
       </section>
     </main>
   </body>

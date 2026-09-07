@@ -14,6 +14,7 @@ import BaseHead from '../components/BaseHead.astro';
         color-scheme: dark;
         --black: #0b0b0a;
         --white: #f4f3f0;
+        --content-width: 648px;
       }
 
       *,
@@ -53,8 +54,7 @@ import BaseHead from '../components/BaseHead.astro';
 
       .visual {
         position: relative;
-        width: 100%;
-        max-width: 648px;
+        width: min(100%, var(--content-width));
       }
 
       .photo {
@@ -69,7 +69,7 @@ import BaseHead from '../components/BaseHead.astro';
 
       .pool-photo {
         display: block;
-        width: min(100%, 648px);
+        width: min(100%, var(--content-width));
         height: auto;
         filter: grayscale(1) contrast(1.08) brightness(0.68);
         border: 1px solid rgba(244, 243, 240, 0.2);
@@ -77,32 +77,14 @@ import BaseHead from '../components/BaseHead.astro';
       }
 
       .primary-info {
-        width: min(100%, 648px);
-        display: grid;
-        grid-template-columns: 94px minmax(0, 1fr);
-        align-items: start;
-        gap: clamp(0.35rem, 0.8vw, 0.75rem);
-        min-width: 0;
+        width: min(100%, var(--content-width));
       }
 
-      .saxophone {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-      }
-
-      .saxophone img {
+      .title-image {
         display: block;
-        width: 78%;
+        width: 100%;
         height: auto;
-        object-fit: contain;
         filter: grayscale(1) brightness(0) invert(1);
-      }
-
-      .primary-info > div:last-child {
-        min-width: 0;
-        container-type: inline-size;
-        text-align: right;
       }
 
       .copy {
@@ -110,7 +92,7 @@ import BaseHead from '../components/BaseHead.astro';
       }
 
       .message {
-        width: min(100%, 648px);
+        width: min(100%, var(--content-width));
         position: relative;
         margin-top: 0;
         padding-top: 1.6rem;
@@ -204,16 +186,8 @@ import BaseHead from '../components/BaseHead.astro';
           text-align: center;
         }
 
-        h1 {
-          font-size: clamp(1.8rem, 8vw, 4rem);
-        }
-
-        .primary-info > div:last-child {
-          text-align: left;
-        }
-
-        .tagline {
-          margin-top: 1.4rem;
+        .primary-info {
+          width: min(100%, 648px);
         }
       }
     </style>
@@ -223,13 +197,11 @@ import BaseHead from '../components/BaseHead.astro';
     <main>
       <section class="landing" aria-label="Jazzdrengene kontaktoplysninger">
         <div class="primary-info">
-          <div class="saxophone">
-            <img src="/saxophone.png" alt="" />
-          </div>
-          <div>
-            <h1>Jazzdrengene.dk</h1>
-            <p class="tagline">- musik til enhver festlig lejlighed</p>
-          </div>
+          <img
+            class="title-image"
+            src="/TitleTransparent.png"
+            alt="Jazzdrengene.dk - musik til enhver festlig lejlighed"
+          />
         </div>
 
         <div class="visual">
@@ -237,7 +209,6 @@ import BaseHead from '../components/BaseHead.astro';
         </div>
 
         <div class="message">
-          <p>Velkommen til Jazzdrengene.dk.</p>
           <p>
             Vil du høre mere om os? Ring til Claus på
             <a href="tel:+4520712237">20712237</a>

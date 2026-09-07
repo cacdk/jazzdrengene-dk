@@ -44,7 +44,7 @@ import BaseHead from '../components/BaseHead.astro';
       }
 
       .landing {
-        width: min(100%, 1120px);
+        width: min(100%, 1344px);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -54,7 +54,7 @@ import BaseHead from '../components/BaseHead.astro';
       .visual {
         position: relative;
         width: 100%;
-        max-width: 540px;
+        max-width: 648px;
       }
 
       .photo {
@@ -67,8 +67,17 @@ import BaseHead from '../components/BaseHead.astro';
         box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.38);
       }
 
+      .pool-photo {
+        display: block;
+        width: min(100%, 648px);
+        height: auto;
+        filter: grayscale(1) contrast(1.08) brightness(0.68);
+        border: 1px solid rgba(244, 243, 240, 0.2);
+        box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.38);
+      }
+
       .primary-info {
-        width: min(100%, 540px);
+        width: min(100%, 648px);
         display: grid;
         grid-template-columns: 94px minmax(0, 1fr);
         align-items: start;
@@ -101,7 +110,7 @@ import BaseHead from '../components/BaseHead.astro';
       }
 
       .message {
-        width: min(100%, 540px);
+        width: min(100%, 648px);
         position: relative;
         margin-top: 0;
         padding-top: 1.6rem;
@@ -195,6 +204,10 @@ import BaseHead from '../components/BaseHead.astro';
           text-align: center;
         }
 
+        h1 {
+          font-size: clamp(1.8rem, 8vw, 4rem);
+        }
+
         .primary-info > div:last-child {
           text-align: left;
         }
@@ -236,6 +249,8 @@ import BaseHead from '../components/BaseHead.astro';
             </a>
           </p>
         </div>
+
+        <img class="pool-photo" src="/JazzdrengnePool.jpg" alt="Jazzdrengene ved poolen" />
       </section>
     </main>
   </body>
